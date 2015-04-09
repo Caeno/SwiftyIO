@@ -64,7 +64,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
         var rows = 0
         var sections = self.fetchedResultsController?.sections?.count ?? 0
         if sections > 0 {
-            var sectionInfo = self.fetchedResultsController!.sections![section] as NSFetchedResultsSectionInfo
+            var sectionInfo = self.fetchedResultsController!.sections![section] as! NSFetchedResultsSectionInfo
             rows = sectionInfo.numberOfObjects
         }
         

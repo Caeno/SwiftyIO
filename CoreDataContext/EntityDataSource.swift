@@ -121,7 +121,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         :returns: The new record object.
      */
     public func create() -> T {
-        let newRecord = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.managedObjectContext) as T
+        let newRecord = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.managedObjectContext) as! T
         
         // Check the key generation type
         switch self.entityKeyGeneration {
@@ -166,7 +166,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         request.sortDescriptors = sortDescriptors
         var error: NSError?
         
-        return self.managedObjectContext.executeFetchRequest(request, error: &error) as [T]
+        return self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]
     }
     
     /**
@@ -180,7 +180,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         request.predicate = NSPredicate(format: "%K = %@", argumentArray: [ self.entityKeyName, recordId ])
         
         var error: NSError?
-        var matches = self.managedObjectContext.executeFetchRequest(request, error: &error) as [T]?
+        var matches = self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]?
         return matches?.first
     }
 
@@ -198,7 +198,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         request.fetchLimit = 1
         
         var error: NSError?
-        let results = self.managedObjectContext.executeFetchRequest(request, error: &error) as [T]?
+        let results = self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]?
         return results?.first
     }
     
@@ -215,7 +215,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         request.sortDescriptors = sortDescriptors
         
         var error: NSError?
-        return self.managedObjectContext.executeFetchRequest(request, error: &error) as [T]?
+        return self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]?
     }
     
     /**

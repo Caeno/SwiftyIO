@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CoreDataContext"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "A Framework to allow fast integration of Core Data into your iOS projects, and easy data operations on defined entities."
   s.homepage         = "https://github.com/ravero/CoreDataContext"
   s.license          = 'MIT'
