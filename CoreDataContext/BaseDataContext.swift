@@ -29,7 +29,7 @@ public class BaseDataContext : NSObject {
     /**
         Clear the current database of this context.
      */
-    func clearDatabase() -> Bool {
+    public func clearDatabase() -> Bool {
         if let persistentStore = self.persistentStore {
             // First tell the persistent store coordinator that the current store will be clear.
             var error: NSError?
@@ -39,11 +39,29 @@ public class BaseDataContext : NSObject {
                 return false
             }
             
-            // Delete the data file
+            // Delete the data files
             error = nil
-            NSFileManager.defaultManager().removeItemAtURL(self.storeUrl, error: &error)
-            if error != nil {
-                return false
+            if let path = storeUrl.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+                NSFileManager.defaultManager().removeItemAtURL(self.storeUrl, error: &error)
+                if error != nil {
+                    return false
+                }
+            }
+            
+            error = nil
+            if let path = storeUrl_wal.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+                NSFileManager.defaultManager().removeItemAtURL(self.storeUrl_wal, error: &error)
+                if error != nil {
+                    return false
+                }
+            }
+            
+            error = nil
+            if let path = storeUrl_shm.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+                NSFileManager.defaultManager().removeItemAtURL(self.storeUrl_shm, error: &error)
+                if error != nil {
+                    return false
+                }
             }
             
             // Re-create the persistent store coordinator
@@ -54,13 +72,26 @@ public class BaseDataContext : NSObject {
         return false
     }
     
+    /**
+        A simple utilitarian method to print the path of the SQLite file of this instance.
+     */
+    public func printDatabasePath() {
+        println("SwiftyIO - Model '\(resourceName)' database path: \(self.storeUrl)")
+    }
+    
     //
     // MARK: - Core Data Stack
     
     private var persistentStore: NSPersistentStore?
     lazy private var storeUrl: NSURL = {
         return self.applicationDocumentsDirectory.URLByAppendingPathComponent("\(self.resourceName).sqlite")
-        }()
+    }()
+    lazy private var storeUrl_wal: NSURL = {
+        return self.applicationDocumentsDirectory.URLByAppendingPathComponent("\(self.resourceName).sqlite-wal")
+    }()
+    lazy private var storeUrl_shm: NSURL = {
+        return self.applicationDocumentsDirectory.URLByAppendingPathComponent("\(self.resourceName).sqlite-shm")
+    }()
     
     lazy private var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.syligo.labs.CoreDataTest" in the application's documents Application Support     directory.
