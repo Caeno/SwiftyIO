@@ -20,13 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A8BBE9E1A2C98F00074FAE2 /* CoreDataContext.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataContext.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A8BBE9E1A2C98F00074FAE2 /* SwiftyIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8BBEA21A2C98F00074FAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8BBEA31A2C98F00074FAE2 /* CoreDataContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataContext.h; sourceTree = "<group>"; };
 		4A8BBEBA1A2C99740074FAE2 /* BaseDataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataContext.swift; sourceTree = "<group>"; };
 		4A8BBEBC1A2C99740074FAE2 /* EntityDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityDataSource.swift; sourceTree = "<group>"; };
 		4A8BBEC31A2C999A0074FAE2 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
-		4A8BBECA1A2C99E60074FAE2 /* CoreDataContext.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreDataContext.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A8BBECA1A2C99E60074FAE2 /* SwiftyIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8BBECD1A2C99E60074FAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8BBECE1A2C99E60074FAE2 /* CoreDataContext_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataContext_OSX.h; sourceTree = "<group>"; };
 		4A8BBEE71A2C9A4A0074FAE2 /* EntityDataSource+iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntityDataSource+iOS.swift"; sourceTree = "<group>"; };
@@ -66,8 +66,8 @@
 		4A8BBE9F1A2C98F00074FAE2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A8BBE9E1A2C98F00074FAE2 /* CoreDataContext.framework */,
-				4A8BBECA1A2C99E60074FAE2 /* CoreDataContext.framework */,
+				4A8BBE9E1A2C98F00074FAE2 /* SwiftyIO.framework */,
+				4A8BBECA1A2C99E60074FAE2 /* SwiftyIO.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,9 +158,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		4A8BBE9D1A2C98F00074FAE2 /* CoreDataContext_iOS */ = {
+		4A8BBE9D1A2C98F00074FAE2 /* SwiftyIO_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A8BBEB41A2C98F00074FAE2 /* Build configuration list for PBXNativeTarget "CoreDataContext_iOS" */;
+			buildConfigurationList = 4A8BBEB41A2C98F00074FAE2 /* Build configuration list for PBXNativeTarget "SwiftyIO_iOS" */;
 			buildPhases = (
 				4A8BBE991A2C98F00074FAE2 /* Sources */,
 				4A8BBE9A1A2C98F00074FAE2 /* Frameworks */,
@@ -171,14 +171,14 @@
 			);
 			dependencies = (
 			);
-			name = CoreDataContext_iOS;
+			name = SwiftyIO_iOS;
 			productName = CoreDataContext;
-			productReference = 4A8BBE9E1A2C98F00074FAE2 /* CoreDataContext.framework */;
+			productReference = 4A8BBE9E1A2C98F00074FAE2 /* SwiftyIO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4A8BBEC91A2C99E60074FAE2 /* CoreDataContext_OSX */ = {
+		4A8BBEC91A2C99E60074FAE2 /* SwiftyIO_OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A8BBEDD1A2C99E60074FAE2 /* Build configuration list for PBXNativeTarget "CoreDataContext_OSX" */;
+			buildConfigurationList = 4A8BBEDD1A2C99E60074FAE2 /* Build configuration list for PBXNativeTarget "SwiftyIO_OSX" */;
 			buildPhases = (
 				4A8BBEC51A2C99E60074FAE2 /* Sources */,
 				4A8BBEC61A2C99E60074FAE2 /* Frameworks */,
@@ -189,9 +189,9 @@
 			);
 			dependencies = (
 			);
-			name = CoreDataContext_OSX;
+			name = SwiftyIO_OSX;
 			productName = CoreDataContext_OSX;
-			productReference = 4A8BBECA1A2C99E60074FAE2 /* CoreDataContext.framework */;
+			productReference = 4A8BBECA1A2C99E60074FAE2 /* SwiftyIO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -223,8 +223,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A8BBE9D1A2C98F00074FAE2 /* CoreDataContext_iOS */,
-				4A8BBEC91A2C99E60074FAE2 /* CoreDataContext_OSX */,
+				4A8BBE9D1A2C98F00074FAE2 /* SwiftyIO_iOS */,
+				4A8BBEC91A2C99E60074FAE2 /* SwiftyIO_OSX */,
 			);
 		};
 /* End PBXProject section */
@@ -368,7 +368,7 @@
 				INFOPLIST_FILE = CoreDataContext/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CoreDataContext;
+				PRODUCT_NAME = SwiftyIO;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -385,7 +385,7 @@
 				INFOPLIST_FILE = CoreDataContext/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = CoreDataContext;
+				PRODUCT_NAME = SwiftyIO;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -407,7 +407,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = CoreDataContext;
+				PRODUCT_NAME = SwiftyIO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -427,7 +427,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = CoreDataContext;
+				PRODUCT_NAME = SwiftyIO;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 			};
@@ -445,7 +445,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A8BBEB41A2C98F00074FAE2 /* Build configuration list for PBXNativeTarget "CoreDataContext_iOS" */ = {
+		4A8BBEB41A2C98F00074FAE2 /* Build configuration list for PBXNativeTarget "SwiftyIO_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A8BBEB51A2C98F00074FAE2 /* Debug */,
@@ -454,7 +454,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A8BBEDD1A2C99E60074FAE2 /* Build configuration list for PBXNativeTarget "CoreDataContext_OSX" */ = {
+		4A8BBEDD1A2C99E60074FAE2 /* Build configuration list for PBXNativeTarget "SwiftyIO_OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A8BBEDE1A2C99E60074FAE2 /* Debug */,
