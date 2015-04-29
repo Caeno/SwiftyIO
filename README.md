@@ -1,5 +1,5 @@
 # SwiftyIO
-<img src="https://dl.dropboxusercontent.com/u/31981409/GitHub/SwiftyIO/Images/SwiftyIORoundedIcon_Logo.png" align="right" />
+<img src="https://dl.dropboxusercontent.com/u/31981409/GitHub/SwiftyIO/Images/SwiftyIORoundedIcon_Logo.png" align="right" hspace="20" />
 
 SwiftyIO is a Cocoa Touch Framework written in Swift to allow fast integration of Core Data into your iOS and OS X projects, and provide a set of classes to easily operate on your entity objects.
 
@@ -8,7 +8,14 @@ This library is perfect for small to medium complexity projects, since it allows
 Just give it a try and provide your feedback to grow it even better!
 
 ## Installation
-SwiftyIO is fully implemented in **Swift**, and is distributed as a Cocoa Touch Framework Library, and is also available via CocoaPods.
+SwiftyIO is fully implemented in **Swift**, and is distributed as a Cocoa Touch Framework Library project. You can install from Cocoapods:
+
+```
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'SwiftyIO', '~> 1.2'
+```
 
 > **Cocoa Touch Frameworks requires minimum deployment target of iOS 8**. To use SwiftyIO on projects that need to support iOS 7, you need to include the Source Code directly in your project.
 
@@ -96,7 +103,7 @@ Data Operations with SwiftyIO are provided by the ***EntityDataSource*** class. 
 ### Creting Objects
 Creating and configuring objects is very simple with SwiftyIO, supose you want to add a category of Notes:
 
-```Swifty
+```swifty
 let newCategory = NotesContext.categories.add {
   $0.name = "Recipes"
 }
