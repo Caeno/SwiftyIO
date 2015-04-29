@@ -10,13 +10,13 @@
 		4A8BBEA41A2C98F00074FAE2 /* CoreDataContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8BBEA31A2C98F00074FAE2 /* CoreDataContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A8BBEBE1A2C99740074FAE2 /* BaseDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEBA1A2C99740074FAE2 /* BaseDataContext.swift */; };
 		4A8BBEC01A2C99740074FAE2 /* EntityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEBC1A2C99740074FAE2 /* EntityDataSource.swift */; };
-		4A8BBEC41A2C999A0074FAE2 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEC31A2C999A0074FAE2 /* CoreDataTableViewController.swift */; };
 		4A8BBECF1A2C99E60074FAE2 /* CoreDataContext_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8BBECE1A2C99E60074FAE2 /* CoreDataContext_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A8BBEE31A2C9A020074FAE2 /* BaseDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEBA1A2C99740074FAE2 /* BaseDataContext.swift */; };
 		4A8BBEE41A2C9A020074FAE2 /* EntityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEBC1A2C99740074FAE2 /* EntityDataSource.swift */; };
-		4A8BBEE81A2C9A4A0074FAE2 /* EntityDataSource+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEE71A2C9A4A0074FAE2 /* EntityDataSource+iOS.swift */; };
 		4AA8A4DC1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */; };
 		4AA8A4DD1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */; };
+		4ADA411B1AF17476003A1E94 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA411A1AF17476003A1E94 /* CoreDataTableViewController.swift */; };
+		4ADA411D1AF1748E003A1E94 /* EntityDataSource+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA411C1AF1748E003A1E94 /* EntityDataSource+iOS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,14 +25,14 @@
 		4A8BBEA31A2C98F00074FAE2 /* CoreDataContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataContext.h; sourceTree = "<group>"; };
 		4A8BBEBA1A2C99740074FAE2 /* BaseDataContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataContext.swift; sourceTree = "<group>"; };
 		4A8BBEBC1A2C99740074FAE2 /* EntityDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityDataSource.swift; sourceTree = "<group>"; };
-		4A8BBEC31A2C999A0074FAE2 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		4A8BBECA1A2C99E60074FAE2 /* SwiftyIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8BBECD1A2C99E60074FAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8BBECE1A2C99E60074FAE2 /* CoreDataContext_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataContext_OSX.h; sourceTree = "<group>"; };
-		4A8BBEE71A2C9A4A0074FAE2 /* EntityDataSource+iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntityDataSource+iOS.swift"; sourceTree = "<group>"; };
-		4AA8A4AA1ABDEAC8001A8B39 /* CoreDataContext.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoreDataContext.podspec; sourceTree = "<group>"; };
+		4AA8A4AA1ABDEAC8001A8B39 /* SwiftyIO.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftyIO.podspec; sourceTree = "<group>"; };
 		4AA8A4D91ABE00AB001A8B39 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Helpers.swift"; sourceTree = "<group>"; };
+		4ADA411A1AF17476003A1E94 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		4ADA411C1AF1748E003A1E94 /* EntityDataSource+iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntityDataSource+iOS.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 		4A8BBEA01A2C98F00074FAE2 /* CoreDataContext */ = {
 			isa = PBXGroup;
 			children = (
+				4ADA41191AF1744E003A1E94 /* iOS */,
 				4A8BBEE61A2C9A1B0074FAE2 /* Extensions */,
-				4A8BBEC21A2C99820074FAE2 /* Helpers */,
 				4A8BBEBA1A2C99740074FAE2 /* BaseDataContext.swift */,
 				4A8BBEBC1A2C99740074FAE2 /* EntityDataSource.swift */,
 				4A8BBEA31A2C98F00074FAE2 /* CoreDataContext.h */,
@@ -91,14 +91,6 @@
 				4A8BBEA21A2C98F00074FAE2 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4A8BBEC21A2C99820074FAE2 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				4A8BBEC31A2C999A0074FAE2 /* CoreDataTableViewController.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		4A8BBECB1A2C99E60074FAE2 /* CoreDataContext_OSX */ = {
@@ -122,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */,
-				4A8BBEE71A2C9A4A0074FAE2 /* EntityDataSource+iOS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -130,10 +121,20 @@
 		4AA8A4A91ABDEAB3001A8B39 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				4AA8A4AA1ABDEAC8001A8B39 /* CoreDataContext.podspec */,
+				4AA8A4AA1ABDEAC8001A8B39 /* SwiftyIO.podspec */,
 				4AA8A4D91ABE00AB001A8B39 /* README.md */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		4ADA41191AF1744E003A1E94 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4ADA411A1AF17476003A1E94 /* CoreDataTableViewController.swift */,
+				4ADA411C1AF1748E003A1E94 /* EntityDataSource+iOS.swift */,
+			);
+			name = iOS;
+			path = ../../../../../../Projects/Labs/SwiftyIO/Source/CoreDataContext/CoreDataContext/iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,9 +254,9 @@
 			files = (
 				4AA8A4DC1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift in Sources */,
 				4A8BBEC01A2C99740074FAE2 /* EntityDataSource.swift in Sources */,
+				4ADA411B1AF17476003A1E94 /* CoreDataTableViewController.swift in Sources */,
+				4ADA411D1AF1748E003A1E94 /* EntityDataSource+iOS.swift in Sources */,
 				4A8BBEBE1A2C99740074FAE2 /* BaseDataContext.swift in Sources */,
-				4A8BBEE81A2C9A4A0074FAE2 /* EntityDataSource+iOS.swift in Sources */,
-				4A8BBEC41A2C999A0074FAE2 /* CoreDataTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
