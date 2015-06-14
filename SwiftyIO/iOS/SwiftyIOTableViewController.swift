@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-public class CoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+public class SwiftyIOTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     //
     // MARK: - Properties

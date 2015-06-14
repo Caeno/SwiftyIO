@@ -3,6 +3,7 @@
 ## Version 1.3.0-Beta2
 
 * Swaped *EntityDataSource* initialisers. Now the init without *entityKeyGeneration* is considered the convenience initialiser.
+* Renamed *CoreDataTableViewController* to **SwiftyIOTableViewController**.
 * Added extension to display entity information on Debug.
 
 ## Version 1.3.0-Beta1
