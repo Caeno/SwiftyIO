@@ -1,5 +1,10 @@
 # SwiftyIO Changelog
 
+## Version 1.3.0-Beta2
+
+* Swaped *EntityDataSource* initialisers. Now the init without *entityKeyGeneration* is considered the convenience initialiser.
+* Added extension to display entity information on Debug.
+
 ## Version 1.3.0-Beta1
 Released 14th Jun 2015, the first beta release of the next SwiftyIO version is aimed at Swift 2.0 and Xcode 7 updates.
 

@@ -42,10 +42,8 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         - parameter entityName: The name of entity being sourced by this instance
         - parameter entityKeyName: The name of the Primary key column in the entity
     */
-    public init(managedObjectContext: NSManagedObjectContext, entityName: String, entityKeyName: String) {
-        self.managedObjectContext = managedObjectContext
-        self.entityName = entityName
-        self.entityKeyName = entityKeyName
+    public convenience init(managedObjectContext: NSManagedObjectContext, entityName: String, entityKeyName: String) {
+        self.init(managedObjectContext: managedObjectContext, entityName: entityName, entityKeyName: entityKeyName, entityKeyGeneration: .None)
     }
     
     /**
@@ -56,8 +54,10 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         - parameter entityKeyName: The name of the Primary key column in the entity
         - parameter entityKeyGeneration: The type of Key Generation to be used
     */
-    public convenience init(managedObjectContext: NSManagedObjectContext, entityName: String, entityKeyName: String, entityKeyGeneration: PrimaryKeyGeneration<K>) {
-        self.init(managedObjectContext: managedObjectContext, entityName: entityName, entityKeyName: entityKeyName)
+    public init(managedObjectContext: NSManagedObjectContext, entityName: String, entityKeyName: String, entityKeyGeneration: PrimaryKeyGeneration<K>) {
+        self.managedObjectContext = managedObjectContext
+        self.entityName = entityName
+        self.entityKeyName = entityKeyName
         self.entityKeyGeneration = entityKeyGeneration
     }
     
