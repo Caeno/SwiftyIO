@@ -16,8 +16,8 @@ extension NSManagedObject {
         var result = "Entity Name: \(entityName)"
         
         result += "\nAttributes: {"
-        for (name, attr) in entity.attributesByName {
-            result += "\n\t\(name): \(valueForKey(name as! String))"
+        for (name, _) in entity.attributesByName {
+            result += "\n\t\(name): \(valueForKey(name))"
         }
         result += "\n}"
         

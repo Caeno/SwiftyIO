@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SwiftyIO"
-  s.version          = "1.3.0-beta1"
+  s.version          = "1.3.0-beta2"
   s.summary          = "A Framework to allow fast integration of Core Data into your iOS and OSX and easily operate on your entity objects"
   s.homepage         = "https://github.com/ravero/SwiftyIO"
   s.license          = 'MIT'

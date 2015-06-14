@@ -15,6 +15,8 @@
 		4A8BBEE41A2C9A020074FAE2 /* EntityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEBC1A2C99740074FAE2 /* EntityDataSource.swift */; };
 		4AA8A4DC1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */; };
 		4AA8A4DD1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */; };
+		4AB39CA81B2DC6B6006B24D3 /* NSManagedObject+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB39CA71B2DC6B6006B24D3 /* NSManagedObject+Debug.swift */; };
+		4AB39CA91B2DC6B6006B24D3 /* NSManagedObject+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB39CA71B2DC6B6006B24D3 /* NSManagedObject+Debug.swift */; };
 		4ADA411B1AF17476003A1E94 /* SwiftyIOTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA411A1AF17476003A1E94 /* SwiftyIOTableViewController.swift */; };
 		4ADA411D1AF1748E003A1E94 /* EntityDataSource+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA411C1AF1748E003A1E94 /* EntityDataSource+iOS.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +33,7 @@
 		4AA8A4AA1ABDEAC8001A8B39 /* SwiftyIO.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SwiftyIO.podspec; sourceTree = "<group>"; };
 		4AA8A4D91ABE00AB001A8B39 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Helpers.swift"; sourceTree = "<group>"; };
+		4AB39CA71B2DC6B6006B24D3 /* NSManagedObject+Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Debug.swift"; sourceTree = "<group>"; };
 		4ADA411A1AF17476003A1E94 /* SwiftyIOTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyIOTableViewController.swift; sourceTree = "<group>"; };
 		4ADA411C1AF1748E003A1E94 /* EntityDataSource+iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntityDataSource+iOS.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +116,7 @@
 		4A8BBEE61A2C9A1B0074FAE2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4AB39CA71B2DC6B6006B24D3 /* NSManagedObject+Debug.swift */,
 				4AA8A4DB1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift */,
 			);
 			path = Extensions;
@@ -255,6 +259,7 @@
 				4AA8A4DC1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift in Sources */,
 				4A8BBEC01A2C99740074FAE2 /* EntityDataSource.swift in Sources */,
 				4ADA411B1AF17476003A1E94 /* SwiftyIOTableViewController.swift in Sources */,
+				4AB39CA81B2DC6B6006B24D3 /* NSManagedObject+Debug.swift in Sources */,
 				4ADA411D1AF1748E003A1E94 /* EntityDataSource+iOS.swift in Sources */,
 				4A8BBEBE1A2C99740074FAE2 /* BaseDataContext.swift in Sources */,
 			);
@@ -265,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA8A4DD1ABE0359001A8B39 /* NSManagedObjectContext+Helpers.swift in Sources */,
+				4AB39CA91B2DC6B6006B24D3 /* NSManagedObject+Debug.swift in Sources */,
 				4A8BBEE31A2C9A020074FAE2 /* BaseDataContext.swift in Sources */,
 				4A8BBEE41A2C9A020074FAE2 /* EntityDataSource.swift in Sources */,
 			);
