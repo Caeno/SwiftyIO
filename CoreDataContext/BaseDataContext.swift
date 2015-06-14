@@ -32,34 +32,37 @@ public class BaseDataContext : NSObject {
     public func clearDatabase() -> Bool {
         if let persistentStore = self.persistentStore {
             // First tell the persistent store coordinator that the current store will be clear.
-            var error: NSError?
-            self.persistentStoreCoordinator?.removePersistentStore(persistentStore, error: &error)
-            
-            if error != nil {
+            do {
+                try self.persistentStoreCoordinator?.removePersistentStore(persistentStore)
+            } catch let error as NSError {
+                NSLog("Error trying to remove Persistent Store: \(error.localizedDescription)\nError data: \(error)")
                 return false
             }
             
             // Delete the data files
-            error = nil
             if let path = storeUrl.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
-                NSFileManager.defaultManager().removeItemAtURL(self.storeUrl, error: &error)
-                if error != nil {
+                do {
+                    try NSFileManager.defaultManager().removeItemAtURL(self.storeUrl)
+                } catch let error as NSError {
+                    NSLog("Error trying to remove data files: \(error.localizedDescription)\nError data: \(error)")
                     return false
                 }
             }
             
-            error = nil
             if let path = storeUrl_wal.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
-                NSFileManager.defaultManager().removeItemAtURL(self.storeUrl_wal, error: &error)
-                if error != nil {
+                do {
+                    try NSFileManager.defaultManager().removeItemAtURL(self.storeUrl_wal)
+                } catch let error as NSError {
+                    NSLog("Error trying to remove WAL file: \(error.localizedDescription)\nError data: \(error)")
                     return false
                 }
             }
             
-            error = nil
             if let path = storeUrl_shm.path where NSFileManager.defaultManager().fileExistsAtPath(path) {
-                NSFileManager.defaultManager().removeItemAtURL(self.storeUrl_shm, error: &error)
-                if error != nil {
+                do {
+                    try NSFileManager.defaultManager().removeItemAtURL(self.storeUrl_shm)
+                } catch let error as NSError {
+                    NSLog("Error trying to remove SHM file: \(error.localizedDescription)\nError data: \(error)")
                     return false
                 }
             }
@@ -76,7 +79,7 @@ public class BaseDataContext : NSObject {
         A simple utilitarian method to print the path of the SQLite file of this instance.
      */
     public func printDatabasePath() {
-        println("SwiftyIO - Model '\(resourceName)' database path: \(self.storeUrl)")
+        print("SwiftyIO - Model '\(resourceName)' database path: \(self.storeUrl)")
     }
     
     //
@@ -96,7 +99,7 @@ public class BaseDataContext : NSObject {
     lazy private var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] as NSURL
     }()
     
     lazy private var managedObjectModel: NSManagedObjectModel = {
@@ -133,29 +136,29 @@ public class BaseDataContext : NSObject {
     
     private func createPersistentStore(coordinator: NSPersistentStoreCoordinator) {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("\(self.resourceName).sqlite")
-        var error: NSError? = nil
-        var failureReason = "There was an error creating or loading the application's saved data."
-        self.persistentStore = coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error)
+        let failureReason = "There was an error creating or loading the application's saved data."
         
-        if self.persistentStore == nil {
+        do {
+            self.persistentStore = try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch let error as NSError {
             // Report any error we got.
-            let dict = NSMutableDictionary()
+            var dict = [NSObject: AnyObject]()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
+            
+            let customError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog("Unresolved error \(error), \(error!.userInfo)")
-            abort()
+            fatalError("Unresolved error \(customError), \(customError.userInfo)")
         }
     }
     
     //
     // MARK: - Core Data Saving support
     
-    public func saveContext () {
-        self.managedObjectContext?.save()
+    public func saveContext() throws {
+        try self.managedObjectContext?.save()
     }
     
 }

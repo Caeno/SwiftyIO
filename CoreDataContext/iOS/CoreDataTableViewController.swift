@@ -39,7 +39,14 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
     public func performFetch() {
         if let frc = self.fetchedResultsController {
             var error: NSError?
-            var success = frc.performFetch(&error)
+            var success: Bool
+            do {
+                try frc.performFetch()
+                success = true
+            } catch var error1 as NSError {
+                error = error1
+                success = false
+            }
             if !success {
                 NSLog("performFetch: failed")
             }
@@ -56,15 +63,15 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
     // MARK: - UITableViewDataSource
     
     override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        var sections = self.fetchedResultsController?.sections?.count ?? 0
+        let sections = self.fetchedResultsController?.sections?.count ?? 0
         return sections
     }
     
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rows = 0
-        var sections = self.fetchedResultsController?.sections?.count ?? 0
+        let sections = self.fetchedResultsController?.sections?.count ?? 0
         if sections > 0 {
-            var sectionInfo = self.fetchedResultsController!.sections![section] as! NSFetchedResultsSectionInfo
+            let sectionInfo = self.fetchedResultsController!.sections![section] as NSFetchedResultsSectionInfo
             rows = sectionInfo.numberOfObjects
         }
         
@@ -73,7 +80,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
     
     override public func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if let frc = self.fetchedResultsController {
-            if let sectionInfo = frc.sections?[section] as? NSFetchedResultsSectionInfo {
+            if let sectionInfo = frc.sections?[section] {
                 return sectionInfo.name
             }
         }
@@ -84,7 +91,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
         return self.fetchedResultsController?.sectionForSectionIndexTitle(title, atIndex: index) ?? 0
     }
     
-    override public func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+    override public func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
         return self.fetchedResultsController?.sectionIndexTitles
     }
     
@@ -106,7 +113,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
         }
     }
     
-    public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    public func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:
             self.tableView.insertRowsAtIndexPaths([ newIndexPath! ], withRowAnimation: .Fade)

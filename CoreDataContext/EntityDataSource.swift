@@ -38,9 +38,9 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
     /**
         Initialize a new instance of this class with the required parameters
     
-        :param: managedObjectContext The Managed Object Context that this instance use to operates against the Core Data repository
-        :param: entityName The name of entity being sourced by this instance
-        :param: entityKeyName The name of the Primary key column in the entity
+        - parameter managedObjectContext: The Managed Object Context that this instance use to operates against the Core Data repository
+        - parameter entityName: The name of entity being sourced by this instance
+        - parameter entityKeyName: The name of the Primary key column in the entity
     */
     public init(managedObjectContext: NSManagedObjectContext, entityName: String, entityKeyName: String) {
         self.managedObjectContext = managedObjectContext
@@ -51,17 +51,34 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
     /**
         Initialize a new instance of this class with the required parameters
         
-        :param: managedObjectContext The Managed Object Context that this instance use to operates against the Core Data repository
-        :param: entityName The name of entity being sourced by this instance
-        :param: entityKeyName The name of the Primary key column in the entity
-        :param: entityKeyGeneration The type of Key Generation to be used
+        - parameter managedObjectContext: The Managed Object Context that this instance use to operates against the Core Data repository
+        - parameter entityName: The name of entity being sourced by this instance
+        - parameter entityKeyName: The name of the Primary key column in the entity
+        - parameter entityKeyGeneration: The type of Key Generation to be used
     */
     public convenience init(managedObjectContext: NSManagedObjectContext, entityName: String, entityKeyName: String, entityKeyGeneration: PrimaryKeyGeneration<K>) {
         self.init(managedObjectContext: managedObjectContext, entityName: entityName, entityKeyName: entityKeyName)
         self.entityKeyGeneration = entityKeyGeneration
     }
     
+    //
+    // MARK: - Private Helper Methods
     
+    /**
+        Helper method to execute a fetch request returning a Typed Array.
+        This methods abstracts 'executeFetchRequest' errors and returns an empty array on case of problems.
+    
+        - parameter request: The fetch request to be executed.
+        - returns: An array of found objects.
+     */
+    func runFetchRequest(request: NSFetchRequest) -> [T] {
+        do {
+            return try self.managedObjectContext.executeFetchRequest(request) as! [T]
+        } catch let error as NSError {
+            NSLog("Error executing fetch command: \(error)")
+            return [T]()
+        }
+    }
     
     //
     // MARK: - Methods to manage the entity
@@ -69,13 +86,13 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
     /**
         Add a new record to the this entity set.
     
-        :param: configureBlock The block used to configure entity parameters before it is persisted.
-        :returns: The newly configured object.
+        - parameter configureBlock: The block used to configure entity parameters before it is persisted.
+        - returns: The newly configured object.
      */
     public func add(configureBlock: ((T) -> ())?) -> T {
         let newRecord = self.create()
         configureBlock?(newRecord)
-        self.managedObjectContext.save()
+        self.managedObjectContext.persistModel()
         
         return newRecord
     }
@@ -89,13 +106,13 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
             self.managedObjectContext.deleteObject(item)
         }
         
-        self.managedObjectContext.save()
+        self.managedObjectContext.persistModel()
     }
     
     /**
         Count the total number of rows in this entity.
     
-        :returns: The count of rows.
+        - returns: The count of rows.
      */
     public func count() -> Int {
         return self.count(nil)
@@ -104,8 +121,8 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
     /**
         Count the number of rows in this entity using the specified predicate.
     
-        :param: predicate The predicate to be used for count operation.
-        :returns: The count of rows.
+        - parameter predicate: The predicate to be used for count operation.
+        - returns: The count of rows.
      */
     public func count(predicate: NSPredicate?) -> Int {
         let request = NSFetchRequest(entityName: self.entityName)
@@ -118,7 +135,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
     /**
         Creates a new record for this entity set associated with the current NSManagedObjectContext.
     
-        :returns: The new record object.
+        - returns: The new record object.
      */
     public func create() -> T {
         let newRecord = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.managedObjectContext) as! T
@@ -142,13 +159,13 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
     /**
         Deletes a record from this entity set.
     
-        :param: recordId The ID of the record to be deleted. If no record is found with this ID nothing is done.
-        :returns: True if the record could be deleted.
+        - parameter recordId: The ID of the record to be deleted. If no record is found with this ID nothing is done.
+        - returns: True if the record could be deleted.
      */
     public func delete(recordId: K) -> Bool {
         if let record = find(recordId) {
             self.managedObjectContext.deleteObject(record)
-            self.managedObjectContext.save()
+            self.managedObjectContext.persistModel()
             return true
         }
         
@@ -159,75 +176,70 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         Get an array of All record from this entity set.
         Note: This method does not implement any sort of caching, so it wisely.
     
-        :returns: An array with all entity objects.
+        - returns: An array with all entity objects.
      */
     public func getAll(sortDescriptors: NSSortDescriptor...) -> [T] {
-        var request = NSFetchRequest(entityName: self.entityName)
+        let request = NSFetchRequest(entityName: self.entityName)
         request.sortDescriptors = sortDescriptors
-        var error: NSError?
-        
-        return self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]
+
+        // In case of error just returns a empty array.
+        return runFetchRequest(request)
     }
     
     /**
         Find a record by its ID.
     
-        :param: recordId The ID of the record being sought.
-        :returns: The sought record or nil if not found on database.
+        - parameter recordId: The ID of the record being sought.
+        - returns: The sought record or nil if not found on database.
      */
     public func find(recordId: K) -> T? {
-        var request = NSFetchRequest(entityName: self.entityName)
+        let request = NSFetchRequest(entityName: self.entityName)
         request.predicate = NSPredicate(format: "%K = %@", argumentArray: [ self.entityKeyName, recordId ])
         
-        var error: NSError?
-        var matches = self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]?
-        return matches?.first
+        return runFetchRequest(request).first
     }
 
     /**
         Return the first record of a fetch request using the specified predicate/sort descriptors.
     
-        :param: predicate The predicate to be used in filter
-        :param: sortDescriptors An optional array of sort descriptors
-        :returns: The first record that obeys the predicate/sort descriptors
+        - parameter predicate: The predicate to be used in filter
+        - parameter sortDescriptors: An optional array of sort descriptors
+        - returns: The first record that obeys the predicate/sort descriptors
      */
     public func first(predicate: NSPredicate? = nil, sortDescriptors: NSSortDescriptor...) -> T? {
-        var request = NSFetchRequest(entityName: self.entityName)
+        let request = NSFetchRequest(entityName: self.entityName)
         request.predicate = predicate
         request.sortDescriptors = sortDescriptors
         request.fetchLimit = 1
         
-        var error: NSError?
-        let results = self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]?
-        return results?.first
+        return runFetchRequest(request).first
     }
     
     /**
         Filter a result by a predicate sorted by descriptors.
     
-        :param: predicate The predicate to be used in filter
-        :param: sortDescriptors An optional array of sort descriptors
-        :returns: An array with entities that match the specified predicate, sorted by the descriptors
+        - parameter predicate: The predicate to be used in filter
+        - parameter sortDescriptors: An optional array of sort descriptors
+        - returns: An array with entities that match the specified predicate, sorted by the descriptors
      */
     public func filter(predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]?) -> [T]? {
-        var request = NSFetchRequest(entityName: self.entityName)
+        let request = NSFetchRequest(entityName: self.entityName)
         request.predicate = predicate
         request.sortDescriptors = sortDescriptors
         
-        var error: NSError?
-        return self.managedObjectContext.executeFetchRequest(request, error: &error) as! [T]?
+        return runFetchRequest(request)
     }
     
     /**
         Updates an record by it's ID.
         
-        :param: recordId The ID of the record to be updated.
-        :param: configureBlock The block that is called to configure the updates.
+        - parameter recordId: The ID of the record to be updated.
+        - parameter configureBlock: The block that is called to configure the updates.
      */
     public func update(recordId: K, configureBlock: (T) -> ()) -> T? {
-        if var record = find(recordId) {
+        if let record = find(recordId) {
             configureBlock(record)
-            self.managedObjectContext.save()
+            self.managedObjectContext.persistModel()
             return record
         }
         
