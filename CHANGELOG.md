@@ -1,5 +1,11 @@
 # SwiftyIO Changelog
 
+## Version 1.3.0-Beta1
+Released 14th Jun 2015, the first beta release of the next SwiftyIO version is aimed at Swift 2.0 and Xcode 7 updates.
+
+* Updated code to Swift 2.0 (Beta) syntax.
+* Renamed project Paths and References from old "CoreDataContext" name to "SwiftyIO".
+
 ## Version 1.2.0
 Released 29th Apr 2015, maintenance and new features.
 

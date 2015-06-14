@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
   s.requires_arc = true
 
-  s.source_files = 'CoreDataContext/**/*.swift'
-  s.osx.exclude_files = 'CoreDataContext/iOS'
+  s.source_files = 'SwiftyIO/**/*.swift'
+  s.osx.exclude_files = 'SwiftyIO/iOS'
 end

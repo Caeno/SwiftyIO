@@ -38,25 +38,13 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
     
     public func performFetch() {
         if let frc = self.fetchedResultsController {
-            var error: NSError?
-            var success: Bool
             do {
                 try frc.performFetch()
-                success = true
-            } catch var error1 as NSError {
-                error = error1
-                success = false
+                self.tableView.reloadData()
+            } catch let error as NSError {
+                NSLog("Perform Fetch failed with error: %@ (%@)", error.localizedDescription, error.localizedFailureReason!)
             }
-            if !success {
-                NSLog("performFetch: failed")
-            }
-            if let e = error {
-                NSLog("%@ (%@)", e.localizedDescription, e.localizedFailureReason!)
-            }
-        } else {
-            
         }
-        self.tableView.reloadData()
     }
     
     //
