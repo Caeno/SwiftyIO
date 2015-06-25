@@ -138,7 +138,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
         - returns: The new record object.
      */
     public func create() -> T {
-        let newRecord = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.managedObjectContext) as! T
+        let newRecord = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: self.managedObjectContext)
         
         // Check the key generation type
         switch self.entityKeyGeneration {
@@ -153,7 +153,7 @@ public class EntityDataSource<T: NSManagedObject, K: AnyObject> {
             newRecord.setValue(keyFunc(), forKey: self.entityKeyName)
         }
         
-        return newRecord
+        return newRecord as! T
     }
     
     /**

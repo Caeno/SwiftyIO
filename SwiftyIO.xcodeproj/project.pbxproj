@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A5B00581B3BA98F00C6CE80 /* SwiftyIOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B00571B3BA98F00C6CE80 /* SwiftyIOTests.swift */; };
+		4A5B005A1B3BA98F00C6CE80 /* SwiftyIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A8BBE9E1A2C98F00074FAE2 /* SwiftyIO.framework */; };
+		4A5B00661B3BA9D600C6CE80 /* SwiftyIO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B00641B3BA9D600C6CE80 /* SwiftyIO.xcdatamodeld */; };
+		4A5B00691B3BAA1F00C6CE80 /* Client+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B00671B3BAA1F00C6CE80 /* Client+CoreDataProperties.swift */; };
+		4A5B006A1B3BAA1F00C6CE80 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B00681B3BAA1F00C6CE80 /* Client.swift */; };
+		4A5B006C1B3BAA5900C6CE80 /* SwiftyIOContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B006B1B3BAA5900C6CE80 /* SwiftyIOContext.swift */; };
 		4A8BBEA41A2C98F00074FAE2 /* CoreDataContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8BBEA31A2C98F00074FAE2 /* CoreDataContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A8BBEBE1A2C99740074FAE2 /* BaseDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEBA1A2C99740074FAE2 /* BaseDataContext.swift */; };
 		4A8BBEC01A2C99740074FAE2 /* EntityDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BBEBC1A2C99740074FAE2 /* EntityDataSource.swift */; };
@@ -21,7 +27,24 @@
 		4ADA411D1AF1748E003A1E94 /* EntityDataSource+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA411C1AF1748E003A1E94 /* EntityDataSource+iOS.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4A5B005B1B3BA98F00C6CE80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A8BBE951A2C98F00074FAE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A8BBE9D1A2C98F00074FAE2;
+			remoteInfo = SwiftyIO_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		4A5B00551B3BA98F00C6CE80 /* SwiftyIOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyIOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5B00571B3BA98F00C6CE80 /* SwiftyIOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyIOTests.swift; sourceTree = "<group>"; };
+		4A5B00591B3BA98F00C6CE80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A5B00651B3BA9D600C6CE80 /* SwiftyIO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftyIO.xcdatamodel; sourceTree = "<group>"; };
+		4A5B00671B3BAA1F00C6CE80 /* Client+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A5B00681B3BAA1F00C6CE80 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		4A5B006B1B3BAA5900C6CE80 /* SwiftyIOContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyIOContext.swift; sourceTree = "<group>"; };
 		4A8BBE9E1A2C98F00074FAE2 /* SwiftyIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A8BBEA21A2C98F00074FAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A8BBEA31A2C98F00074FAE2 /* CoreDataContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataContext.h; sourceTree = "<group>"; };
@@ -39,6 +62,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A5B00521B3BA98F00C6CE80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5B005A1B3BA98F00C6CE80 /* SwiftyIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A8BBE9A1A2C98F00074FAE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,12 +87,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A5B00561B3BA98F00C6CE80 /* SwiftyIOTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A5B00631B3BA9B400C6CE80 /* Model */,
+				4A5B00571B3BA98F00C6CE80 /* SwiftyIOTests.swift */,
+				4A5B00591B3BA98F00C6CE80 /* Info.plist */,
+			);
+			path = SwiftyIOTests;
+			sourceTree = "<group>";
+		};
+		4A5B00631B3BA9B400C6CE80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A5B00641B3BA9D600C6CE80 /* SwiftyIO.xcdatamodeld */,
+				4A5B006B1B3BAA5900C6CE80 /* SwiftyIOContext.swift */,
+				4A5B00671B3BAA1F00C6CE80 /* Client+CoreDataProperties.swift */,
+				4A5B00681B3BAA1F00C6CE80 /* Client.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4A8BBE941A2C98F00074FAE2 = {
 			isa = PBXGroup;
 			children = (
 				4AA8A4A91ABDEAB3001A8B39 /* Podspec Metadata */,
 				4A8BBEA01A2C98F00074FAE2 /* SwiftyIO */,
 				4A8BBECB1A2C99E60074FAE2 /* SwiftyIO_OSX */,
+				4A5B00561B3BA98F00C6CE80 /* SwiftyIOTests */,
 				4A8BBE9F1A2C98F00074FAE2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +124,7 @@
 			children = (
 				4A8BBE9E1A2C98F00074FAE2 /* SwiftyIO.framework */,
 				4A8BBECA1A2C99E60074FAE2 /* SwiftyIO.framework */,
+				4A5B00551B3BA98F00C6CE80 /* SwiftyIOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +216,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4A5B00541B3BA98F00C6CE80 /* SwiftyIOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A5B005F1B3BA98F00C6CE80 /* Build configuration list for PBXNativeTarget "SwiftyIOTests" */;
+			buildPhases = (
+				4A5B00511B3BA98F00C6CE80 /* Sources */,
+				4A5B00521B3BA98F00C6CE80 /* Frameworks */,
+				4A5B00531B3BA98F00C6CE80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A5B005C1B3BA98F00C6CE80 /* PBXTargetDependency */,
+			);
+			name = SwiftyIOTests;
+			productName = SwiftyIOTests;
+			productReference = 4A5B00551B3BA98F00C6CE80 /* SwiftyIOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4A8BBE9D1A2C98F00074FAE2 /* SwiftyIO_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A8BBEB41A2C98F00074FAE2 /* Build configuration list for PBXNativeTarget "SwiftyIO_iOS" */;
@@ -208,6 +280,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Ravero;
 				TargetAttributes = {
+					4A5B00541B3BA98F00C6CE80 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					4A8BBE9D1A2C98F00074FAE2 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -230,11 +305,19 @@
 			targets = (
 				4A8BBE9D1A2C98F00074FAE2 /* SwiftyIO_iOS */,
 				4A8BBEC91A2C99E60074FAE2 /* SwiftyIO_OSX */,
+				4A5B00541B3BA98F00C6CE80 /* SwiftyIOTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A5B00531B3BA98F00C6CE80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A8BBE9C1A2C98F00074FAE2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +335,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A5B00511B3BA98F00C6CE80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A5B00581B3BA98F00C6CE80 /* SwiftyIOTests.swift in Sources */,
+				4A5B00661B3BA9D600C6CE80 /* SwiftyIO.xcdatamodeld in Sources */,
+				4A5B006A1B3BAA1F00C6CE80 /* Client.swift in Sources */,
+				4A5B006C1B3BAA5900C6CE80 /* SwiftyIOContext.swift in Sources */,
+				4A5B00691B3BAA1F00C6CE80 /* Client+CoreDataProperties.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A8BBE991A2C98F00074FAE2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,7 +373,42 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4A5B005C1B3BA98F00C6CE80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A8BBE9D1A2C98F00074FAE2 /* SwiftyIO_iOS */;
+			targetProxy = 4A5B005B1B3BA98F00C6CE80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		4A5B005D1B3BA98F00C6CE80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SwiftyIOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.ravero.labs.SwiftyIOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4A5B005E1B3BA98F00C6CE80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = SwiftyIOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.ravero.labs.SwiftyIOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		4A8BBEB21A2C98F00074FAE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,6 +578,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A5B005F1B3BA98F00C6CE80 /* Build configuration list for PBXNativeTarget "SwiftyIOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A5B005D1B3BA98F00C6CE80 /* Debug */,
+				4A5B005E1B3BA98F00C6CE80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4A8BBE981A2C98F00074FAE2 /* Build configuration list for PBXProject "SwiftyIO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -476,6 +614,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4A5B00641B3BA9D600C6CE80 /* SwiftyIO.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4A5B00651B3BA9D600C6CE80 /* SwiftyIO.xcdatamodel */,
+			);
+			currentVersion = 4A5B00651B3BA9D600C6CE80 /* SwiftyIO.xcdatamodel */;
+			path = SwiftyIO.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4A8BBE951A2C98F00074FAE2 /* Project object */;
 }

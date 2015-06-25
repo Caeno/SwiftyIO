@@ -1,16 +1,13 @@
 # SwiftyIO Changelog
 
-## Version 1.3.0-Beta2
-
-* Swaped *EntityDataSource* initialisers. Now the init without *entityKeyGeneration* is considered the convenience initialiser.
-* Renamed *CoreDataTableViewController* to **SwiftyIOTableViewController**.
-* Added extension to display entity information on Debug.
-
-## Version 1.3.0-Beta1
-Released 14th Jun 2015, the first beta release of the next SwiftyIO version is aimed at Swift 2.0 and Xcode 7 updates.
+## Version 1.3.0 (Beta 3)
+Released 14th Jun 2015, the first beta release of the next SwiftyIO version is aimed at Swift 2.0 and Xcode 7 updates. The log shows cumulative changes from all beta versions.
 
 * Updated code to Swift 2.0 (Beta) syntax.
 * Renamed project Paths and References from old "CoreDataContext" name to "SwiftyIO".
+* Swaped *EntityDataSource* initialisers. Now the init without *entityKeyGeneration* is considered the convenience initialiser.
+* Renamed *CoreDataTableViewController* to **SwiftyIOTableViewController**.
+* Added extension to display entity information on Debug.
 
 ## Version 1.2.0
 Released 29th Apr 2015, maintenance and new features.
