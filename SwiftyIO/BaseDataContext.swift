@@ -15,6 +15,7 @@ public class BaseDataContext : NSObject {
     // MARK: - Properties
     
     var resourceName: String
+    var allowAutomaticMigrations = false
     
     //
     // MARK: - Initializers
@@ -138,8 +139,16 @@ public class BaseDataContext : NSObject {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("\(self.resourceName).sqlite")
         let failureReason = "There was an error creating or loading the application's saved data."
         
+        var options: [NSObject: AnyObject]? = nil
+        if allowAutomaticMigrations {
+            options = [
+                NSMigratePersistentStoresAutomaticallyOption: true,
+                NSInferMappingModelAutomaticallyOption: true
+            ]
+        }
+        
         do {
-            self.persistentStore = try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            self.persistentStore = try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
         } catch let error as NSError {
             // Report any error we got.
             var dict = [NSObject: AnyObject]()
