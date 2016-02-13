@@ -8,7 +8,7 @@ This library is perfect for small to medium complexity projects, since it allows
 Just give it a try and provide your feedback to grow it even better!
 
 ## Installation
-SwiftyIO is fully implemented in **Swift**, and is distributed as a Cocoa Touch Framework Library project. You can install from Cocoapods:
+SwiftyIO is fully implemented in **Swift**, and is distributed as a Cocoa Touch Framework Library project. You can install from CocoaPods:
 
 ```
 platform :ios, '8.0'
